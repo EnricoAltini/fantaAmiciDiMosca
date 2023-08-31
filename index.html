@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asta Fantacalcio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <h1>Asta Fantacalcio</h1>
+  <div class="auction">
+    <h2>Giocatore in asta: <span id="currentPlayer">Nessuno</span></h2>
+    <p>Partecipante: <input type="text" id="participantName" placeholder="Inserisci il tuo nome"></p>
+    <p>Valore attuale: <span id="currentValue">0</span></p>
+    <p>Rilanciato da: <span id="lastBidder">Nessuno</span></p>
+    <button id="bidButton" onclick="placeBid()">Rilancia</button>
+    <p id="countdown">Tempo rimasto: <span id="time">30</span> secondi</p>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
