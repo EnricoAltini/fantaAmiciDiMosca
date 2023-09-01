@@ -54,6 +54,12 @@ function stoptimer(){
     const participantName = document.getElementById("participantName").value;
     if (participantName == "Presidente"){
         clearInterval(countdownInterval);
+
+        countdown=0;
+        set(ref(database, 'timer/' ), {
+            sec: countdown,
+            
+          });
     }
 
 }
@@ -87,8 +93,13 @@ function resetVal(){
 }
 
 function placeBid1() {
-    console.log("Countdown: "+String(countdown))
-    if (countdown>0) {
+    
+    const currentTimeS = document.getElementById("time");
+    let currentTime = currentTimeS.textContent;
+    currentTime= parseInt(currentTime, 10);
+    console.log("CurrentTime: "+String(currentTime));
+
+    if(currentTime>0) {
         const participantName = document.getElementById("participantName").value;
         const currentValueSpan = document.getElementById("currentValue");
         currentValue = currentValueSpan.textContent;
@@ -106,8 +117,13 @@ function placeBid1() {
 }
 
 function placeBid5() {
-    console.log("Countdown: "+String(countdown))
-    if (countdown>0) {
+    const currentTimeS = document.getElementById("time");
+    let currentTime = currentTimeS.textContent;
+    currentTime= parseInt(currentTime, 10);
+    console.log("CurrentTime: "+String(currentTime));
+
+
+    if (currentTime>0) {
         const participantName = document.getElementById("participantName").value;
         const currentValueSpan = document.getElementById("currentValue");
         currentValue = currentValueSpan.textContent;
@@ -124,8 +140,12 @@ function placeBid5() {
 }
 
 function placeBid10() {
-    console.log("Countdown: "+String(countdown))
-    if (countdown>0) {
+    const currentTimeS = document.getElementById("time");
+    let currentTime = currentTimeS.textContent;
+    currentTime= parseInt(currentTime, 10);
+    console.log("CurrentTime: "+String(currentTime));
+
+    if (currentTime>0) {
         const participantName = document.getElementById("participantName").value;
         const currentValueSpan = document.getElementById("currentValue");
         currentValue = currentValueSpan.textContent;
