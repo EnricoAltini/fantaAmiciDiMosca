@@ -20,6 +20,17 @@ body {
   text-align: center;
 }
 
+.red-button {
+  background-color: red;
+  color: white;
+}
+
+.green-button {
+  background-color: green;
+  color: white;
+}
+
+
 button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -34,5 +45,13 @@ button:hover {
 }
 
 #countdown {
+  font-weight: bold;
+}
+
+#currentValue{
+  font-weight: bold;
+}
+
+#lastBidder{
   font-weight: bold;
 }

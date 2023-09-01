@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Asta Fantacalcio</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<script  type="module" type="text/javascript" src="script.js"></script>
 <div class="container">
-  <h1>Asta Fantacalcio</h1>
+  <h1>Asta FantaAmiciDiMosca</h1>
   <div class="auction">
-    <h2>Giocatore in asta: <span id="currentPlayer">Nessuno</span></h2>
-    <p>Partecipante: <input type="text" id="participantName" placeholder="Inserisci il tuo nome"></p>
-    <p>Valore attuale: <span id="currentValue">0</span></p>
-    <p>Rilanciato da: <span id="lastBidder">Nessuno</span></p>
-    <button id="bidButton" onclick="placeBid()">Rilancia</button>
+    <h2>Giocatore in asta: <span id="currentPlayer">......</span></h2>
+    <p>Squadra Fanta: <input type="text" id="participantName" placeholder="Inserisci il tuo nome"></p>
+    <p>Fantamilioni $: <span id="currentValue">0</span></p>
+    <p>Ultimo rilancio di: <span id="lastBidder">Nessuno</span></p>
+    <button id="bidButton1" onclick="placeBid1()">Rilancia +1</button>
+    <button id="bidButton5" onclick="placeBid5()">Rilancia +5</button>
+    <button id="bidButton10" onclick="placeBid10()">Rilancia +10</button>
     <p id="countdown">Tempo rimasto: <span id="time">30</span> secondi</p>
+    <button id="resetButton" onclick="resetVal()" class="green-button">Reset</button>
+    <button id="stopButton" onclick="stopTimer()" class="red-button">Stop</button>
+
+    
   </div>
 </div>
-<script src="script.js"></script>
 </body>
 </html>
+
