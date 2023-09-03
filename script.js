@@ -228,10 +228,18 @@ const playerVal = ref(database, 'gameData');
 onValue(playerVal, (snapshot) => {
     const data = snapshot.val();
     updatePage(data.value, data.bidder);
-    console.log("aggiornato partecipante e valore")
+    console.log("aggiornato partecipante e valore");
+    if(data.value==0)
+        gongSound.play();
+    if(data.value==10)
+        resetSound.play();
+    if(data.value >0 && data.value<10){
+        tickSound.play();
+    } 
+
   });
 
-// Aggiorna la pagina con i dati dal database
+// Aggiorna la pagina con i dati dal databasse
 function updatePage(value, bidder) {
     document.getElementById("currentValue").textContent = value;
     document.getElementById("lastBidder").textContent = bidder;
