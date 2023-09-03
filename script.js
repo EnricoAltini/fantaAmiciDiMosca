@@ -240,20 +240,21 @@ const timerValRef = ref(database, 'timer');
 onValue(timerValRef, (snapshot) => {
     const dataTime = snapshot.val();
     updatePageTimer(dataTime.sec);
-    console.log("timer aggiornato")
+    console.log("timer aggiornato");
 
-    ct = dataTime.textContent;
-    secNum = parseInt(ct, 10)
-
-    if(secNum==0)
+    if(dataTime.sec==0){
         gongSound.play();
-    
-    if(secNum==10){
+        console.log("Timer:" + dataTime.sec );
+    } 
+
+    if(dataTime.sec==10){
         resetSound.play();
         countdown=10; //valore corrente di timer sul cliente
+        console.log("Timer: "+ dataTime.sec);
     } 
-    if(secNum> 0 && secNum<10){
+    if(dataTime.sec> 0 && dataTime.sec<10){
         tickSound.play();
+        console.log("Timer in progress: "+ dataTime.sec);
     } 
         
   });
