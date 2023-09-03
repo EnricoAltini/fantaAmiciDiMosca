@@ -242,11 +242,13 @@ onValue(timerValRef, (snapshot) => {
     updatePageTimer(dataTime.sec);
     console.log("timer aggiornato")
 
-    if(data.Time==0)
+    if(dataTime.sec==0)
         gongSound.play();
-    if(data.Time==10)
+    if(dataTime.sec==10){
         resetSound.play();
-    if(data.Time >0 && data.Time<10){
+        countdown=10; //valore corrente di timer sul cliente
+    } 
+    if(dataTime.sec >0 && dataTime.sec<10){
         tickSound.play();
     } 
         
