@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asta Fantacalcio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <h1>Asta Fantacalcio</h1>
+  <div class="auction">
+    <h2>Giocatore in asta: <span id="currentPlayer">Nessuno</span></h2>
+    <p>Partecipante: <input type="text" id="participantName" placeholder="Inserisci il tuo nome"></p>
+    <p>Valore attuale: <span id="currentValue">0</span></p>
+    <p>Rilanciato da: <span id="lastBidder">Nessuno</span></p>
+    <button id="bidButton" onclick="placeBid()">Rilancia</button>
+    <p id="countdown">Tempo rimasto: <span id="time">30</span> secondi</p>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+
+
+Creazione di un Repository su GitHub:
+
+Vai su GitHub (https://github.com) e accedi al tuo account o crea uno se non ne hai già uno.
+Clicca sul pulsante "+", quindi seleziona "New Repository".
+Assegna un nome al tuo repository (ad esempio, "fantacalcio-asta").
+Puoi rendere il repository pubblico.
+Non selezionare la creazione di un file "README" o un file ".gitignore" al momento della creazione del repository.
+Caricamento dei File dell'Applicazione:
+
+Una volta creato il repository, puoi caricare i tuoi file HTML, CSS e JavaScript. Puoi farlo tramite interfaccia Web o Git. Per l'interfaccia Web:
+Clicca sul pulsante "Add file" sopra l'elenco dei file nel repository.
+Seleziona "Upload files" e carica i file del tuo progetto, inclusi index.html, styles.css e script.js.
+Configurazione del Repository:
+
+Assicurati che index.html sia il tuo file principale, poiché GitHub Pages cercherà questo file per avviare la tua pagina.
+Puoi anche configurare le impostazioni del repository per attivare GitHub Pages:
+Vai nella sezione "Settings" del tuo repository.
+Scorri verso il basso fino a "GitHub Pages" nella sezione "GitHub Pages".
+Seleziona il ramo da cui vuoi pubblicare (di solito il ramo "main" o "master").
+Fai clic su "Save".
+Accesso all'Applicazione:
+
+Dopo aver configurato GitHub Pages, dovresti vedere un link in "GitHub Pages" nelle impostazioni del repository. Questo link è l'URL della tua applicazione web.
+Di solito sarà qualcosa come https://il-tuo-nome-utente.github.io/nome-repository.
+Ora la tua applicazione dovrebbe essere online e accessibile tramite l'URL di GitHub Pages. Puoi condividere questo URL con gli altri per far loro accedere all'applicazione.
+
+Ricorda che questa è solo una delle molte opzioni di hosting disponibili. Se desideri un maggior controllo e personalizzazione, potresti considerare l'utilizzo di servizi di hosting a pagamento o di altri strumenti come Netlify, Vercel o AWS S3. Ogni servizio avrà le proprie istruzioni specifiche per il caricamento dei file e la configurazione dell'hosting.

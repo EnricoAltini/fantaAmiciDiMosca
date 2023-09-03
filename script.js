@@ -38,12 +38,13 @@ const database = getDatabase();
 
 let currentValue = 0;
 let lastBidder = "Nessuno";
-let countdown = 30
+let countdown = 10
 
+//questi pezzi di codce sono fondamentali per creare il collegamento tra riferimento click richiamato in html e funzione in script
 window.placeBid1 = placeBid1
 window.placeBid5 = placeBid5
 window.placeBid10 = placeBid10
-window.resetVal = resetVal
+window.startTimer = startTimer
 window.stopTimer = stoptimer
 
 window.currentValue = currentValue
@@ -60,17 +61,19 @@ function stoptimer(){
             sec: countdown,
             
           });
+        
+        buttonSound.play();
     }
 
 }
 
-function resetVal(){
+function resetVal(lastName){
     const participantName = document.getElementById("participantName").value;
-    if (participantName == "Presidente"){
-        currentValue = 0
-        updateGameData(currentValue, "Nessuno");
+    if (participantName != ""){
+        //currentValue = 0
+        updateGameData(currentValue, lastName);
 
-        countdown = 30;
+        countdown = 10;
         set(ref(database, 'timer/' ), {
             sec: countdown,
             
@@ -86,14 +89,49 @@ function resetVal(){
         countdownInterval = setInterval(() => {
             decrementTimer();
         }, 1000);
+
+        resetSound.play();
           
 
        
     }
 }
 
+
+function startTimer(){
+    const participantName = document.getElementById("participantName").value;
+    if (participantName == "Presidente"){
+        currentValue = 0
+        updateGameData(currentValue, "Nessuno");
+
+        countdown = 10;
+        set(ref(database, 'timer/' ), {
+            sec: countdown,
+            
+          });
+
+        try {
+            clearInterval(countdownInterval);
+            
+        } catch (error) {
+            console.log("Timer non ancora avviato")
+        }
+          
+        countdownInterval = setInterval(() => {
+            decrementTimer();
+        }, 1000);
+
+        resetSound.play();
+          
+
+       
+    }
+
+
+}
+
 function placeBid1() {
-    
+
     const currentTimeS = document.getElementById("time");
     let currentTime = currentTimeS.textContent;
     currentTime= parseInt(currentTime, 10);
@@ -111,12 +149,17 @@ function placeBid1() {
             currentValue += 1;
             lastBidder = participantName;
             updateGameData(currentValue, lastBidder);
-            console.log("Nome "+participantName)
+            console.log("Nome "+participantName);
+            buttonSound.play();
+            resetVal(lastBidder);
         }
     }
 }
 
 function placeBid5() {
+
+   
+
     const currentTimeS = document.getElementById("time");
     let currentTime = currentTimeS.textContent;
     currentTime= parseInt(currentTime, 10);
@@ -134,12 +177,17 @@ function placeBid5() {
             currentValue += 5;
             lastBidder = participantName;
             updateGameData(currentValue, lastBidder);
-            console.log("Nome "+participantName)
+            console.log("Nome "+participantName);
+            buttonSound.play();
+            resetVal(lastBidder);
         }
     }
 }
 
 function placeBid10() {
+    
+    
+
     const currentTimeS = document.getElementById("time");
     let currentTime = currentTimeS.textContent;
     currentTime= parseInt(currentTime, 10);
@@ -157,7 +205,9 @@ function placeBid10() {
             currentValue += 10;
             lastBidder = participantName;
             updateGameData(currentValue, lastBidder);
-            console.log("Nome "+participantName)
+            console.log("Nome "+participantName);
+            buttonSound.play();
+            resetVal(lastBidder);
         }
     }
 }
@@ -182,7 +232,7 @@ onValue(playerVal, (snapshot) => {
   });
 
 // Aggiorna la pagina con i dati dal database
-function updatePage(value, bidder, timer) {
+function updatePage(value, bidder) {
     document.getElementById("currentValue").textContent = value;
     document.getElementById("lastBidder").textContent = bidder;
     
@@ -208,9 +258,14 @@ onValue(timerValRef, (snapshot) => {
 // Decrementa il timer e aggiorna il valore nel database
 function decrementTimer() {
     countdown=countdown-1;
+    // Riproduci il suono del ticchettio
+    tickSound.play();
 
-    if(countdown <= 0)
+    if(countdown <= 0){
         countdown = 0;
+        gongSound.play();
+        clearInterval(countdownInterval);
+    }
 
     set(ref(database, 'timer/' ), {
         sec: countdown,
