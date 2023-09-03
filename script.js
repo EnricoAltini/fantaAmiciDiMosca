@@ -78,22 +78,10 @@ function resetVal(lastName){
             sec: countdown,
             
           });
-
-        try {
-            clearInterval(countdownInterval);
-            
-        } catch (error) {
-            console.log("Timer non ancora avviato")
-        }
-          
-        countdownInterval = setInterval(() => {
-            decrementTimer();
-        }, 1000);
-
+        
         resetSound.play();
           
 
-       
     }
 }
 
@@ -228,14 +216,8 @@ const playerVal = ref(database, 'gameData');
 onValue(playerVal, (snapshot) => {
     const data = snapshot.val();
     updatePage(data.value, data.bidder);
-    console.log("aggiornato partecipante e valore");
-    if(data.value==0)
-        gongSound.play();
-    if(data.value==10)
-        resetSound.play();
-    if(data.value >0 && data.value<10){
-        tickSound.play();
-    } 
+    console.log("aggiornato partecipante e valore:" + data.value);
+    
 
   });
 
@@ -259,6 +241,14 @@ onValue(timerValRef, (snapshot) => {
     const dataTime = snapshot.val();
     updatePageTimer(dataTime.sec);
     console.log("timer aggiornato")
+
+    if(data.Time==0)
+        gongSound.play();
+    if(data.Time==10)
+        resetSound.play();
+    if(data.Time >0 && data.Time<10){
+        tickSound.play();
+    } 
         
   });
 
