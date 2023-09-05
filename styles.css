@@ -55,3 +55,25 @@ button:hover {
 #lastBidder{
   font-weight: bold;
 }
+
+#time {
+  font-size: 24px; /* Modifica la dimensione del carattere a tuo piacimento */
+  color: rgb(219, 99, 6);     /* Cambia il colore del testo in rosso */
+}
+
+
+#currentValue{
+  font-size: 24px; /* Modifica la dimensione del carattere a tuo piacimento */
+  color: rgb(2, 101, 27);     /* Cambia il colore del testo in rosso */
+}
+
+#bidButton10 {
+  display: block;
+  margin: 10px auto;
+}
+
+
+
+
+
+
